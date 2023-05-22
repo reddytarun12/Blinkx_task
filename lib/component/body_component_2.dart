@@ -114,6 +114,7 @@ class BodyComponent2 extends StatelessWidget {
                         fontFamily: 'BeVietnam',
                         fontWeight: FontWeight.w700,
                       ),
+                      keyboardType: TextInputType.number,
                       cursorColor:
                           Theme.of(context).textTheme.titleMedium!.color,
                       decoration: InputDecoration(
