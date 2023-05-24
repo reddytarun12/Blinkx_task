@@ -8,6 +8,7 @@ class BodyComponent2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var amountController = TextEditingController();
+    var amountFocus = FocusNode();
 
     if (amountController.text.isEmpty) {
       amountController.text = "60,000";
@@ -89,7 +90,7 @@ class BodyComponent2 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Loan Amount",
+                " Loan Amount",
                 style: TextStyle(
                   fontSize: 20,
                   fontFamily: 'BeVietnam',
@@ -100,44 +101,52 @@ class BodyComponent2 extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 8,
+                height: 2,
               ),
               Row(
                 children: [
-                  SizedBox(
-                    height: 38,
-                    width: 130,
-                    child: TextField(
-                      controller: amountController,
-                      style: const TextStyle(
-                        fontSize: 28,
-                        fontFamily: 'BeVietnam',
-                        fontWeight: FontWeight.w700,
-                      ),
-                      keyboardType: TextInputType.number,
-                      cursorColor:
-                          Theme.of(context).textTheme.titleMedium!.color,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        prefix: Text(
-                          '\u{20B9} ',
-                          style: TextStyle(
-                              fontSize: 28,
-                              color: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium!
-                                  .color),
+                  Flexible(
+                    fit: FlexFit.loose,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.31,
+                      child: TextField(
+                        controller: amountController,
+                        focusNode: amountFocus,
+                        style: const TextStyle(
+                          fontSize: 28,
+                          fontFamily: 'BeVietnam',
+                          fontWeight: FontWeight.w700,
+                        ),
+                        keyboardType: TextInputType.number,
+                        cursorColor:
+                            Theme.of(context).textTheme.titleMedium!.color,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          isDense: true,
+                          contentPadding: const EdgeInsets.all(0),
+                          prefix: Text(
+                            ' \u{20B9} ',
+                            style: TextStyle(
+                                fontSize: 28,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .color),
+                          ),
                         ),
                       ),
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(
-                      bottom: 10.0,
-                    ),
-                    child: SvgPicture.asset(
-                      'assets/icons/edit_icon.svg',
-                      fit: BoxFit.scaleDown,
+                    padding: const EdgeInsets.only(top: 5.0),
+                    child: InkWell(
+                      child: SvgPicture.asset(
+                        'assets/icons/edit_icon.svg',
+                        fit: BoxFit.scaleDown,
+                      ),
+                      onTap: () {
+                        amountFocus.requestFocus();
+                      },
                     ),
                   )
                 ],
@@ -152,7 +161,7 @@ class BodyComponent2 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Interest",
+                " Interest",
                 style: TextStyle(
                   fontSize: 20,
                   fontFamily: 'BeVietnam',
@@ -163,7 +172,7 @@ class BodyComponent2 extends StatelessWidget {
                 ),
               ),
               Text(
-                "@18% p.a",
+                " @18% p.a",
                 style: TextStyle(
                     fontSize: 20,
                     fontFamily: 'BeVietnam',

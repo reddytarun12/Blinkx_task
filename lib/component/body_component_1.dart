@@ -1,15 +1,16 @@
 import 'package:blinkx/component/blinkx_slider_button.dart';
 import 'package:blinkx/component/slider_component.dart';
-import 'package:blinkx/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 
 class BodyComponent1 extends StatelessWidget {
   const BodyComponent1({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var brightness = SchedulerBinding.instance.window.platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -46,21 +47,17 @@ class BodyComponent1 extends StatelessWidget {
                     left: 45,
                     child: const RulerSmallWidget(),
                   ),
-                  Consumer<BlinkxProvider>(
-                    builder: (context, value, child) {
-                      return Positioned(
-                        top: MediaQuery.of(context).size.height * 0.020,
-                        left: 37,
-                        child: SvgPicture.asset(
-                          'assets/icons/ruler_big.svg',
-                          fit: BoxFit.scaleDown,
-                          // ignore: deprecated_member_use
-                          color: value.isDarkModeOn
-                              ? const Color(0xffffffff)
-                              : const Color(0xff191919),
-                        ),
-                      );
-                    },
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.020,
+                    left: 37,
+                    child: SvgPicture.asset(
+                      'assets/icons/ruler_big.svg',
+                      fit: BoxFit.scaleDown,
+                      // ignore: deprecated_member_use
+                      color: isDarkMode
+                          ? const Color(0xffffffff)
+                          : const Color(0xff191919),
+                    ),
                   ),
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.032,
@@ -82,22 +79,20 @@ class BodyComponent1 extends StatelessWidget {
                     left: 45,
                     child: const RulerSmallWidget(),
                   ),
-                  Consumer<BlinkxProvider>(
-                    builder: (context, value, child) {
-                      return Positioned(
-                        top: MediaQuery.of(context).size.height * 0.082,
-                        left: 37,
-                        child: SvgPicture.asset(
-                          'assets/icons/ruler_big.svg',
-                          fit: BoxFit.scaleDown,
-                          // ignore: deprecated_member_use
-                          color: value.isDarkModeOn
-                              ? const Color(0xffffffff)
-                              : const Color(0xff191919),
-                        ),
-                      );
-                    },
+
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.082,
+                    left: 37,
+                    child: SvgPicture.asset(
+                      'assets/icons/ruler_big.svg',
+                      fit: BoxFit.scaleDown,
+                      // ignore: deprecated_member_use
+                      color: isDarkMode
+                          ? const Color(0xffffffff)
+                          : const Color(0xff191919),
+                    ),
                   ),
+
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.096,
                     left: 45,
@@ -118,22 +113,20 @@ class BodyComponent1 extends StatelessWidget {
                     left: 45,
                     child: const RulerSmallWidget(),
                   ),
-                  Consumer<BlinkxProvider>(
-                    builder: (context, value, child) {
-                      return Positioned(
-                        top: MediaQuery.of(context).size.height * 0.150,
-                        left: 37,
-                        child: SvgPicture.asset(
-                          'assets/icons/ruler_big.svg',
-                          fit: BoxFit.scaleDown,
-                          // ignore: deprecated_member_use
-                          color: value.isDarkModeOn
-                              ? const Color(0xffffffff)
-                              : const Color(0xff191919),
-                        ),
-                      );
-                    },
+
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.150,
+                    left: 37,
+                    child: SvgPicture.asset(
+                      'assets/icons/ruler_big.svg',
+                      fit: BoxFit.scaleDown,
+                      // ignore: deprecated_member_use
+                      color: isDarkMode
+                          ? const Color(0xffffffff)
+                          : const Color(0xff191919),
+                    ),
                   ),
+
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.162,
                     left: 45,
@@ -154,22 +147,20 @@ class BodyComponent1 extends StatelessWidget {
                     left: 45,
                     child: const RulerSmallWidget(),
                   ),
-                  Consumer<BlinkxProvider>(
-                    builder: (context, value, child) {
-                      return Positioned(
-                        top: MediaQuery.of(context).size.height * 0.215,
-                        left: 37,
-                        child: SvgPicture.asset(
-                          'assets/icons/ruler_big.svg',
-                          fit: BoxFit.scaleDown,
-                          // ignore: deprecated_member_use
-                          color: value.isDarkModeOn
-                              ? const Color(0xffffffff)
-                              : const Color(0xff191919),
-                        ),
-                      );
-                    },
+
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.215,
+                    left: 37,
+                    child: SvgPicture.asset(
+                      'assets/icons/ruler_big.svg',
+                      fit: BoxFit.scaleDown,
+                      // ignore: deprecated_member_use
+                      color: isDarkMode
+                          ? const Color(0xffffffff)
+                          : const Color(0xff191919),
+                    ),
                   ),
+
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.227,
                     left: 45,
@@ -190,22 +181,20 @@ class BodyComponent1 extends StatelessWidget {
                     left: 42,
                     child: const RulerSmallWidget(),
                   ),
-                  Consumer<BlinkxProvider>(
-                    builder: (context, value, child) {
-                      return Positioned(
-                        top: MediaQuery.of(context).size.height * 0.283,
-                        left: 30,
-                        child: SvgPicture.asset(
-                          'assets/icons/ruler_big.svg',
-                          fit: BoxFit.scaleDown,
-                          // ignore: deprecated_member_use
-                          color: value.isDarkModeOn
-                              ? const Color(0xffffffff)
-                              : const Color(0xff191919),
-                        ),
-                      );
-                    },
+
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.283,
+                    left: 30,
+                    child: SvgPicture.asset(
+                      'assets/icons/ruler_big.svg',
+                      fit: BoxFit.scaleDown,
+                      // ignore: deprecated_member_use
+                      color: isDarkMode
+                          ? const Color(0xffffffff)
+                          : const Color(0xff191919),
+                    ),
                   ),
+
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.297,
                     left: 33,
@@ -226,22 +215,20 @@ class BodyComponent1 extends StatelessWidget {
                     left: 11,
                     child: const RulerSmallWidget(),
                   ),
-                  Consumer<BlinkxProvider>(
-                    builder: (context, value, child) {
-                      return Positioned(
-                        top: MediaQuery.of(context).size.height * 0.353,
-                        left: 3,
-                        child: SvgPicture.asset(
-                          'assets/icons/ruler_big.svg',
-                          fit: BoxFit.scaleDown,
-                          // ignore: deprecated_member_use
-                          color: value.isDarkModeOn
-                              ? const Color(0xffffffff)
-                              : const Color(0xff191919),
-                        ),
-                      );
-                    },
+
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.353,
+                    left: 3,
+                    child: SvgPicture.asset(
+                      'assets/icons/ruler_big.svg',
+                      fit: BoxFit.scaleDown,
+                      // ignore: deprecated_member_use
+                      color: isDarkMode
+                          ? const Color(0xffffffff)
+                          : const Color(0xff191919),
+                    ),
                   ),
+
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.366,
                     left: 11,
@@ -262,22 +249,20 @@ class BodyComponent1 extends StatelessWidget {
                     left: 33,
                     child: const RulerSmallWidget(),
                   ),
-                  Consumer<BlinkxProvider>(
-                    builder: (context, value, child) {
-                      return Positioned(
-                        top: MediaQuery.of(context).size.height * 0.416,
-                        left: 30,
-                        child: SvgPicture.asset(
-                          'assets/icons/ruler_big.svg',
-                          fit: BoxFit.scaleDown,
-                          // ignore: deprecated_member_use
-                          color: value.isDarkModeOn
-                              ? const Color(0xffffffff)
-                              : const Color(0xff191919),
-                        ),
-                      );
-                    },
+
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.416,
+                    left: 30,
+                    child: SvgPicture.asset(
+                      'assets/icons/ruler_big.svg',
+                      fit: BoxFit.scaleDown,
+                      // ignore: deprecated_member_use
+                      color: isDarkMode
+                          ? const Color(0xffffffff)
+                          : const Color(0xff191919),
+                    ),
                   ),
+
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.430,
                     left: 42,
@@ -298,22 +283,20 @@ class BodyComponent1 extends StatelessWidget {
                     left: 45,
                     child: const RulerSmallWidget(),
                   ),
-                  Consumer<BlinkxProvider>(
-                    builder: (context, value, child) {
-                      return Positioned(
-                        top: MediaQuery.of(context).size.height * 0.482,
-                        left: 37,
-                        child: SvgPicture.asset(
-                          'assets/icons/ruler_big.svg',
-                          fit: BoxFit.scaleDown,
-                          // ignore: deprecated_member_use
-                          color: value.isDarkModeOn
-                              ? const Color(0xffffffff)
-                              : const Color(0xff191919),
-                        ),
-                      );
-                    },
+
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.482,
+                    left: 37,
+                    child: SvgPicture.asset(
+                      'assets/icons/ruler_big.svg',
+                      fit: BoxFit.scaleDown,
+                      // ignore: deprecated_member_use
+                      color: isDarkMode
+                          ? const Color(0xffffffff)
+                          : const Color(0xff191919),
+                    ),
                   ),
+
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.495,
                     left: 45,
@@ -334,22 +317,20 @@ class BodyComponent1 extends StatelessWidget {
                     left: 45,
                     child: const RulerSmallWidget(),
                   ),
-                  Consumer<BlinkxProvider>(
-                    builder: (context, value, child) {
-                      return Positioned(
-                        top: MediaQuery.of(context).size.height * 0.545,
-                        left: 37,
-                        child: SvgPicture.asset(
-                          'assets/icons/ruler_big.svg',
-                          fit: BoxFit.scaleDown,
-                          // ignore: deprecated_member_use
-                          color: value.isDarkModeOn
-                              ? const Color(0xffffffff)
-                              : const Color(0xff191919),
-                        ),
-                      );
-                    },
+
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.545,
+                    left: 37,
+                    child: SvgPicture.asset(
+                      'assets/icons/ruler_big.svg',
+                      fit: BoxFit.scaleDown,
+                      // ignore: deprecated_member_use
+                      color: isDarkMode
+                          ? const Color(0xffffffff)
+                          : const Color(0xff191919),
+                    ),
                   ),
+
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.558,
                     left: 45,
@@ -370,22 +351,20 @@ class BodyComponent1 extends StatelessWidget {
                     left: 45,
                     child: const RulerSmallWidget(),
                   ),
-                  Consumer<BlinkxProvider>(
-                    builder: (context, value, child) {
-                      return Positioned(
-                        top: MediaQuery.of(context).size.height * 0.608,
-                        left: 37,
-                        child: SvgPicture.asset(
-                          'assets/icons/ruler_big.svg',
-                          fit: BoxFit.scaleDown,
-                          // ignore: deprecated_member_use
-                          color: value.isDarkModeOn
-                              ? const Color(0xffffffff)
-                              : const Color(0xff191919),
-                        ),
-                      );
-                    },
+
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.608,
+                    left: 37,
+                    child: SvgPicture.asset(
+                      'assets/icons/ruler_big.svg',
+                      fit: BoxFit.scaleDown,
+                      // ignore: deprecated_member_use
+                      color: isDarkMode
+                          ? const Color(0xffffffff)
+                          : const Color(0xff191919),
+                    ),
                   ),
+
                   Positioned(
                     top: MediaQuery.of(context).size.height * 0.621,
                     left: 45,
@@ -406,22 +385,20 @@ class BodyComponent1 extends StatelessWidget {
                     left: 45,
                     child: const RulerSmallWidget(),
                   ),
-                  Consumer<BlinkxProvider>(
-                    builder: (context, value, child) {
-                      return Positioned(
-                        top: MediaQuery.of(context).size.height * 0.677,
-                        left: 37,
-                        child: SvgPicture.asset(
-                          'assets/icons/ruler_big.svg',
-                          fit: BoxFit.scaleDown,
-                          // ignore: deprecated_member_use
-                          color: value.isDarkModeOn
-                              ? const Color(0xffffffff)
-                              : const Color(0xff191919),
-                        ),
-                      );
-                    },
+
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * 0.677,
+                    left: 37,
+                    child: SvgPicture.asset(
+                      'assets/icons/ruler_big.svg',
+                      fit: BoxFit.scaleDown,
+                      // ignore: deprecated_member_use
+                      color: isDarkMode
+                          ? const Color(0xffffffff)
+                          : const Color(0xff191919),
+                    ),
                   ),
+
                   //lines end here
                 ],
               ),

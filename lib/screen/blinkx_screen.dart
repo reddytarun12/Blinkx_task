@@ -1,9 +1,7 @@
 import 'package:blinkx/component/body_component_1.dart';
 import 'package:blinkx/component/body_component_2.dart';
-import 'package:blinkx/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 
 class BlinkX extends StatelessWidget {
   const BlinkX({super.key});
@@ -24,33 +22,6 @@ class BlinkX extends StatelessWidget {
             // ignore: deprecated_member_use
             color: IconTheme.of(context).color,
           ),
-          actions: [
-            Row(
-              children: [
-                Icon(
-                  Icons.light_mode,
-                  color: Theme.of(context).iconTheme.color,
-                ),
-                Switch(
-                  value: Provider.of<BlinkxProvider>(context, listen: false)
-                      .isDarkModeOn,
-                  activeColor: const Color(0xffFA7416),
-                  inactiveThumbColor: const Color(0xffFA7416),
-                  onChanged: (boolValue) {
-                    Provider.of<BlinkxProvider>(context, listen: false)
-                        .updateTheme(boolValue);
-                  },
-                ),
-                Icon(
-                  Icons.dark_mode,
-                  color: Theme.of(context).iconTheme.color,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-              ],
-            ),
-          ],
         ),
         body: Column(
           children: [
@@ -74,12 +45,20 @@ class BlinkX extends StatelessWidget {
                 const SizedBox(
                   width: 7,
                 ),
-                SvgPicture.asset(
-                  'assets/icons/info_icon.svg',
-                  fit: BoxFit.scaleDown,
-                  // ignore: deprecated_member_use
-                  color: Theme.of(context).iconTheme.color,
-                )
+                InkWell(
+                  child: SvgPicture.asset(
+                    'assets/icons/info_icon.svg',
+                    fit: BoxFit.scaleDown,
+                    // ignore: deprecated_member_use
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                  onTap: () {
+                    const Tooltip(
+                      message:
+                          'A tooltip message that will be displayed in this bubble',
+                    );
+                  },
+                ),
               ],
             ),
             Expanded(
